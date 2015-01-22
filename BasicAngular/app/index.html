@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Todo App</title>
+    <style>
+        body {
+            padding: 150px;
+        }
+    </style>
+</head>
+<body ng-app="todoApp">
+<h1>Todo App1</h1>
+
+<div ng-controller="MainController">
+
+    <div>
+        <input type="text" placeholder="Enter Todo" ng-model="newTodo.text">
+        <input type="hidden" ng-model="newTodo.completed">
+        <button ng-click="addTodo();">Add</button>
+    </div>
+    <br>
+
+    <div ng-repeat="item in todos">
+        <div >
+            <input type="checkbox" ng-model="item.completed">
+            <span ng-bind="item.text"></span>
+            <button ng-click="removeTodo(item);">x</button>
+        </div>
+    </div>
+    <div>
+        <br/>
+        <button ng-click="clearCompletedTodos();">Clear Completed</button>
+    </div>
+</div>
+<script src="lib/angular.min.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
